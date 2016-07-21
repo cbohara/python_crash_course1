@@ -14,5 +14,6 @@ print(message)
 
 name = "              Spacey Sally  "
 print(name)
+# strip() will remove any whitespace between the quotation marks
 name = name.strip()
 print(name)
