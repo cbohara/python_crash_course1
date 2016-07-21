@@ -59,13 +59,13 @@ print("An " + too_sweet + " is too sweet for me.")
 
 
 cars = ['bmw', 'audi', 'toyota', 'subaru']
-# sorted() maintain original order of list but presents a sorted order
 print("\nHere is the original list:")
 print(cars)
 
+# sorted() maintain original order of list but presents a sorted order
+# takes a list as an argument
 print("\nHere is the sorted list:")
 print(sorted(cars))
-
 
 # sort() permenantly sorts a list, in this instance reverse alphabetical
 cars.sort(reverse=True)
