@@ -1,3 +1,3 @@
 # Python Crash Course
 
-The purpose of the book is to make me a good programmer in general and a good Python programmer in particular
+Notes and exercises from Python Crash Course by Eric Matthes

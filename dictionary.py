@@ -25,3 +25,14 @@ else:
 new_position = alien_0['x_position'] + x_increment
 print("Old position was " + str(alien_0['x_position']) + " but it moved to  position"
         + str(new_position))
+
+human = {}
+human['name'] = 'charlie'
+human['age'] = 27
+print(human)
+
+glossary = {}
+glossary['list'] = 'a continuous block of memory searched by index'
+glossary['dictionary'] = 'data structure that stores key-value pairs'
+glossary['tuple'] = 'a list that cannot be mutated'
+print(glossary)
