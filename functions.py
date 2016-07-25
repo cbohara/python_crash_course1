@@ -36,17 +36,17 @@ describe_pet(animal_type = "hampster", pet_name = "harry")
 describe_pet(pet_name = "ranger", animal_type = "dog")
 
 # default values have to listed after all parameters that don't have defaults
-def describe_pet(pet_name, animal_type = "dog"):
+def describe_pet(pet_name, animal_type="dog"):
     """Display info about a pet"""
     print(animal_type, pet_name)
 
 # same output
-describe_pet(pet_name = "ranger")
+describe_pet(pet_name="ranger")
 describe_pet("ranger")
 # same output
 describe_pet("sally", "salamander")
-describe_pet(pet_name = "sally", animal_type = "salamander")
-describe_pet(animal_type = "salamander", pet_name = "sally")
+describe_pet(pet_name="sally", animal_type="salamander")
+describe_pet(animal_type="salamander", pet_name="sally")
 
 # return data
 def get_formatted_name(first_name, last_name, middle_name=""):
@@ -183,7 +183,7 @@ def build_profile(first, last, **user_info):
     return profile
 
 user_profile = build_profile('albert', 'einstein',
-                             location = 'princeton', field = 'physics')
+                             location='princeton', field='physics')
 print(user_profile)
 
 def build_sandwich(*noms):
@@ -200,5 +200,5 @@ def build_user(first, last, **additional_info):
         user[key] = value
     return user
 
-new_user = build_user('charlie','ohara', language = 'python', sport = 'swimming')
+new_user = build_user('charlie','ohara', language='python', sport='swimming')
 print(new_user)
