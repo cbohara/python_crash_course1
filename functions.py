@@ -85,19 +85,120 @@ usernames = ["hannah", "ty", "margot"]
 greet_user(usernames)
 
 # modifying a list in a function
-unprinted = ['iphone case', 'robot pendant', 'dodecahedron']
-completed = []
-# prints design
-def print_models(unprinted, completed):
-    while unprinted:
-        current_project = unprinted.pop()
-        print("Printing model: \n" + current_project)
-        completed.append(current_project)
+def print_models(unprinted_designs, completed_models):
+    while unprinted_designs:
+        current_design = unprinted_designs.pop()
+        print("Printing mode: " + current_design)
+        completed_models.append(current_design)
 
-# summarize which prints have been made
 def show_completed_models(completed):
-    for complete in completed:
-        print(completed)
+    print("The following models have been printed:")
+    for completed_model in completed_models:
+        print(completed_model)
 
-print_models(unprinted, completed)
-show_completed_models(completed)
+unprinted_designs = ['iphone case', 'robot pendant', 'unicorn glitter']
+completed_models = []
+print_models(unprinted_designs, completed_models)
+show_completed_models(completed_models)
+
+"""
+prevent functions from modifying the original list
+pass in a copy of the list calling_function_name(list[:])
+"""
+def print_models(unprinted_designs, completed_models):
+    while unprinted_designs:
+        current_design = unprinted_designs.pop()
+        print("Printing mode: " + current_design)
+        completed_models.append(current_design)
+
+def show_completed_models(completed):
+    print("The following models have been printed:")
+    for completed_model in completed_models:
+        print(completed_model)
+
+def print_original(unprinted_designs):
+    print("Show that original list still exists")
+    for design in unprinted_designs:
+        print(design)
+
+unprinted_designs = ['iphone case', 'robot pendant', 'unicorn glitter']
+completed_models = []
+print_models(unprinted_designs[:], completed_models)
+# pass in a copy of the list   ^
+show_completed_models(completed_models)
+print_original(unprinted_designs)
+
+def show_magicians(magicians):
+    for magician in magicians:
+        print(magician)
+
+def make_great(magicians):
+    while magicians:
+        current_magician = magicians.pop()
+        great_magicians.append(current_magician + " the Great!")
+
+magicians = ['alex', 'houdini', 'magic mike']
+great_magicians = []
+show_magicians(magicians)
+make_great(magicians[:])
+print("magicians")
+show_magicians(magicians)
+print("great magicians")
+show_magicians(great_magicians)
+
+"""
+passing an arbitrary number of arguments
+using a tuple
+
+* in the parameter name tells python to create an empty tuple and pack whatever
+values it receives into the tuple (a list that cannot be changed)
+if the function accepts several types of arguments, the parameter that wishes to
+accept an arbitrary number of arguments must be placed last in the function definition
+"""
+def make_pizza(size, *toppings):
+    print("Making a " + str(size) + "-inch pizza with the following toppings:")
+    for topping in toppings:
+        print("- " + topping)
+
+make_pizza(12, 'pepperoni')
+make_pizza(16, 'mushrooms', 'green peppers', 'extra cheese')
+
+"""
+using arbitrary keyword arguments
+using a dictionary
+
+in example below, function expects first and last name
+then accepts as many key-value pairs as the calling statement provides!
+**user_info causes Python to create an empty dictionary called user_info
+and packs whatever name value pairs it receives in a dictionary
+"""
+# build a dictionary containing everything we know about the user
+def build_profile(first, last, **user_info):
+    profile = {}
+    profile['first_name'] = first
+    profile['last_name'] = last
+    # items() allows us to access key, value in dictionary
+    for key, value in user_info.items():
+        profile[key] = value
+    return profile
+
+user_profile = build_profile('albert', 'einstein',
+                             location = 'princeton', field = 'physics')
+print(user_profile)
+
+def build_sandwich(*noms):
+    print("Building a sandwich with:")
+    for nom in noms:
+        print(nom)
+build_sandwich('lettuce', 'tomato', 'mayo')
+
+def build_user(first, last, **additional_info):
+    user = {}
+    user['first'] = first
+    user['last'] = last
+    for key, value in additional_info.items():
+        user[key] = value
+    return user
+
+new_user = build_user('charlie','ohara', language = 'python', sport = 'swimming')
+print(new_user)
