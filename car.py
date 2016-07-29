@@ -29,20 +29,6 @@ class Car():
     def fill_gas_tank(self, miles):
         print("You need to fill the tank every " + str(self.miles) + " miles.")
 
-# my_car = Car("subaru", "legacy", 2003)
-# my_car.get_descriptive_name()
-# my_car.read_odometer()
-# my_car.odometer_reading = 23
-# my_car.read_odometer()
-# my_car.update_odometer(50)
-# my_car.read_odometer()
-# my_car.update_odometer(20)
-# my_car.increment_odometer(100)
-# my_car.read_odometer()
-# my_car.increment_odometer(500)
-# my_car.read_odometer()
-# my_car.increment_odometer(-20)
-
 class Battery():
     def __init__(self, battery_size=70):
         self.battery_size = battery_size
@@ -75,17 +61,3 @@ class ElectricCar(Car):
     # in the child class
     def fill_gas_tank(self):
         print("This car doesn't need a gas tank!")
-
-my_tesla = ElectricCar('tesla', 'model s', 2016)
-print(my_tesla.get_descriptive_name())
-"""
-when we want to describe the battery, we need to work through the car's battery attribute
-
-this line tells python to look at the instance of my_tesla, find its battery
-attribute, and call the method describe_battery() that's associated with the
-Battery instance stored in the attribute
-"""
-my_tesla.battery.describe_battery()
-my_tesla.battery.get_range()
-my_tesla.battery.upgrade_battery()
-my_tesla.battery.get_range()

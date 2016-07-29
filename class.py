@@ -62,6 +62,19 @@ baby_moon.set_number_served(10)
 print(str(baby_moon.number_served))
 baby_moon.set_number_served(5)
 
+class IceCreamStand(Restaurant):
+    def __init__(self, name, cuisine_type):
+        super().__init__(name, cuisine_type)
+        self.flavors = ['chocolate', 'vanilla', 'swirl']
+
+    def flavor_listing(self):
+        print("We have the following flavors:")
+        for flavor in self.flavors:
+            print(flavor)
+
+banana_stand = IceCreamStand('banana stand', 'ice cream')
+banana_stand.describe_restaurant()
+banana_stand.flavor_listing()
 
 class User():
     def __init__(self, first_name, last_name):
@@ -94,6 +107,25 @@ me.increment_login_attempts(10)
 print(str(me.login_attempts))
 me.reset_login_attempts()
 print(str(me.login_attempts))
+
+class Privileges():
+    def __init__(self):
+        self.privileges = ['can add post', 'can delete post', 'can ban user']
+
+    def show_privledges(self):
+        print("The admin has the following privilege:")
+        for privilege in self.privileges:
+            print(privilege)
+
+class Admin(User):
+    def __init__(self, first_name, last_name):
+        super().__init__(first_name, last_name)
+        # make a Privileges instance as an attribute to the Admin class
+        self.privileges = Privileges()
+
+admin1 = Admin('charlie', 'boss')
+admin1.greet_user()
+admin1.privileges.show_privledges()
 
 class Car():
     def __init__(self, make, model, year):
