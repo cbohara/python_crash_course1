@@ -37,6 +37,7 @@ class Restaurant():
     def __init__(self, name, cuisine_type):
         self.name = name
         self.cuisine_type = cuisine_type
+        self.number_served = 0
 
     def describe_restaurant(self):
         print(self.name.title() + " is a " + self.cuisine_type + " restaurant.")
@@ -44,14 +45,29 @@ class Restaurant():
     def open_restaurant(self):
         print("Welcome to " + self.name.title() + "! We are open!")
 
+    def set_number_served(self, number):
+        if self.number_served < number:
+            self.number_served += number
+        else:
+            print("This number can only increase!")
+
+
 baby_moon = Restaurant('baby moon', 'italian')
 baby_moon.describe_restaurant()
 baby_moon.open_restaurant()
+print(str(baby_moon.number_served))
+baby_moon.number_served = 5
+print(str(baby_moon.number_served))
+baby_moon.set_number_served(10)
+print(str(baby_moon.number_served))
+baby_moon.set_number_served(5)
+
 
 class User():
     def __init__(self, first_name, last_name):
         self.first_name = first_name
         self.last_name = last_name
+        self.login_attempts = 0
 
     def describe_user(self):
         print("This user's name is " + self.first_name.title() + " " +
@@ -61,9 +77,23 @@ class User():
         print("Hello " + self.first_name.title() + " " +
                 self.last_name.title() + "!")
 
+    def increment_login_attempts(self, number):
+        if self.login_attempts < number:
+            self.login_attempts += number
+        else:
+            print("This can only be positive!")
+
+    def reset_login_attempts(self):
+        self.login_attempts = 0
+
 me = User('charlie', 'omara')
 me.describe_user()
 me.greet_user()
+print(str(me.login_attempts))
+me.increment_login_attempts(10)
+print(str(me.login_attempts))
+me.reset_login_attempts()
+print(str(me.login_attempts))
 
 class Car():
     def __init__(self, make, model, year):
