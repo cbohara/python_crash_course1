@@ -1,0 +1,3 @@
+"In Python you can save information into variables."
+"In Python you can create classes to store information to be reused."
+"In Python you can create functions that execute on data."
